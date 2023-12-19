@@ -69,5 +69,11 @@ git tag -a -m "message" vX.XX
 ### Push Tag
 
 ```bash
-git push --follow-tags
+git push origin vX.XX
+```
+
+## Update Primary Tag
+
+```bash
+git tag -fa -m "message" v2
 ```
