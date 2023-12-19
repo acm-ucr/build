@@ -11,7 +11,7 @@ const build = async () => {
   } catch (err) {
     error(err);
     setFailed(
-      "Please address your build issues. You can replicate these errors with `npm run build`"
+      "Please address your build issues. You can replicate these errors with `npm run build`",
     );
   }
 };
