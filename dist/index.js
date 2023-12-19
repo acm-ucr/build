@@ -15,8 +15,15 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 const build = async () => {
-  const { stdout } = await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.getExecOutput)("npm ci");
-  (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.info)(stdout);
+  try {
+    const { stdout } = await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.getExecOutput)("npm ci");
+    (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.info)(stdout);
+  } catch (err) {
+    (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.error)(err);
+    (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(
+      "Please ensure you have a `package-lock.json` file. You can generate one with `npm i`",
+    );
+  }
 
   try {
     const { stdout } = await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.getExecOutput)("npm run build");
@@ -24,7 +31,7 @@ const build = async () => {
   } catch (err) {
     (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.error)(err);
     (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(
-      "Please address your build issues. You can replicate these errors with `npm run build`"
+      "Please address your build issues. You can replicate these errors with `npm run build`",
     );
   }
 };
