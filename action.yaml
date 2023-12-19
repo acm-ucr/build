@@ -1,0 +1,5 @@
+name: "Checking Build with npm"
+description: "Build project to ensure successful compilation"
+runs:
+  using: "node20"
+  main: "dist/index.js"
